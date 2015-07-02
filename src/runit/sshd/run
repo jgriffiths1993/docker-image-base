@@ -1,0 +1,8 @@
+#!/bin/sh
+set -x
+
+if [ ! -d "/var/run/sshd" ] && [ -d "/var/run" ]; then
+    mkdir -v /var/run/sshd
+fi
+
+exec /usr/sbin/sshd -D

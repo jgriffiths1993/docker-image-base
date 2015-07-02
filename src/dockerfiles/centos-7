@@ -1,0 +1,12 @@
+FROM centos:7
+MAINTAINER Joshua Griffiths <josh.griffiths@opsview.com>
+
+ADD . /build
+RUN /build/build.sh
+
+EXPOSE 22
+
+# systemd-container specific integration settings
+VOLUME ["/run", "/tmp"]
+ENV container docker
+CMD ["/usr/sbin/init"]

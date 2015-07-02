@@ -1,0 +1,8 @@
+FROM debian:wheezy
+MAINTAINER Joshua Griffiths <josh.griffiths@opsview.com>
+
+ADD . /build
+RUN /build/build.sh
+
+EXPOSE 22
+ENTRYPOINT ["/sbin/pidone"]
